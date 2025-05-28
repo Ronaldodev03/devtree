@@ -7,6 +7,9 @@ connectDB();
 
 const app = express();
 
+// Leer datos de formularios
+app.use(express.json());
+
 app.use("/", router);
 
 export default app;
