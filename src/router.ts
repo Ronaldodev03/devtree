@@ -6,6 +6,7 @@ import {
   getUserByHandle,
   login,
   updateProfile,
+  uploadImage,
 } from "./handlers";
 import { handleInputErrors } from "./middleware/validation";
 import { authenticate } from "./middleware/auth";
@@ -42,6 +43,8 @@ router.patch(
   authenticate,
   updateProfile
 );
+
+router.post("/user/image", authenticate, uploadImage);
 
 router.get("/:handle", getUserByHandle);
 
