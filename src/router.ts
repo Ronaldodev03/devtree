@@ -46,6 +46,11 @@ router.patch(
 
 router.post("/user/image", authenticate, uploadImage);
 
+router.get("/cron-job", (req, res) => {
+  res.status(200).json({ message: "welcome" });
+  return;
+});
+
 router.get("/:handle", getUserByHandle);
 
 export default router;
