@@ -7,6 +7,7 @@ import {
   login,
   updateProfile,
   uploadImage,
+  searchByHandle,
 } from "./handlers";
 import { handleInputErrors } from "./middleware/validation";
 import { authenticate } from "./middleware/auth";
@@ -52,5 +53,12 @@ router.get("/cron-job", (req, res) => {
 });
 
 router.get("/:handle", getUserByHandle);
+
+router.post(
+  "/search",
+  body("handle").notEmpty().withMessage("El handle no puede ir vacio"),
+  handleInputErrors,
+  searchByHandle
+);
 
 export default router;
